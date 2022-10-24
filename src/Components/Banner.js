@@ -1,14 +1,8 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { makeImagePath } from "../utils";
 
 import { FaPlay, FaInfoCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
-const bannerSlider = keyframes`
-0%{background-position-x: left}
-50%{background-position-x: right}
-100%{background-position-x: left}
-`;
 
 const Home = styled.div`
   display: flex;
@@ -24,13 +18,8 @@ const Home = styled.div`
     ),
     url(${(props) => props.bgphoto});
   background-size: cover;
-  background-position-x: center;
-  animation: ${bannerSlider} 30s infinite;
+  background-position: center;
   cursor: default;
-
-  @media screen and (max-width: 992px) {
-    animation: none;
-  }
 `;
 
 const Title = styled.h2`

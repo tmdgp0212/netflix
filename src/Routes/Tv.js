@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { useMatch, useNavigate } from "react-router-dom";
+import { useMatch } from "react-router-dom";
 import styled from "styled-components";
 
 import { getTvShows, getTvTopRated } from "../api";
