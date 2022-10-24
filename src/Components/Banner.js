@@ -88,16 +88,18 @@ const PlayBtns = styled.div`
   }
 `;
 
-const Banner = ({ nowPlaying }) => {
+const Banner = ({ nowPlaying, isMovie }) => {
   const history = useNavigate();
 
   const onBoxClicked = (movieId) => {
-    history(`/movies/${movieId}`);
+    isMovie ? history(`/movies/${movieId}`) : history(`/tv/${movieId}`);
   };
 
   return (
     <Home bgphoto={makeImagePath(nowPlaying.results[0].backdrop_path)}>
-      <Title>{nowPlaying.results[0].title}</Title>
+      <Title>
+        {isMovie ? nowPlaying.results[0].title : nowPlaying.results[0].name}
+      </Title>
       <OverView>{nowPlaying.results[0].overview}</OverView>
       <PlayBtns>
         <button className="play">

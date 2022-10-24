@@ -47,7 +47,7 @@ const Home = () => {
         <Loader>loading</Loader>
       ) : (
         <>
-          <Banner nowPlaying={nowPlaying} />
+          <Banner nowPlaying={nowPlaying} isMovie />
 
           <MovieSlide title={"Now Playing"} data={nowPlaying} isMovie />
           {topratedLoading ? null : (
