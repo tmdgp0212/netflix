@@ -26,6 +26,7 @@ const BigMovie = styled(motion.div)`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
   width: 540px;
   height: 720px;
   max-height: 80vh;
@@ -50,7 +51,7 @@ const Details = styled.div`
   flex-direction: column;
   overflow-y: auto;
   height: 420px;
-  padding: 20px 25px;
+  padding: 0px 25px 20px;
   flex: 1;
 
   cursor: default;
@@ -69,6 +70,8 @@ const Details = styled.div`
   }
 
   > h3 {
+    position: absolute;
+    top: 250px;
     color: ${(props) => props.theme.white.darker};
     font-size: 36px;
   }

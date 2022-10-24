@@ -33,11 +33,16 @@ const Movie = styled.div`
   }
 
   > .poster {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 140px;
     height: 210px;
+    color: gray;
     background-image: url(${(props) => props.bgphoto});
     background-size: cover;
     background-position: center;
+    background-color: rgb(64, 64, 64);
   }
 
   > .desc {
@@ -70,7 +75,9 @@ const Similar = ({ movieId }) => {
               key={movie.id}
               bgphoto={makeImagePath(movie.poster_path, "w300")}
             >
-              <div className="poster"></div>
+              <div className="poster">
+                {movie.poster_path ? null : "이미지가 없습니다"}
+              </div>
               <div className="desc">
                 <h4>{movie.title}</h4>
               </div>

@@ -6,6 +6,7 @@ import { getMovies, getTopRated, getUpcoming } from "../api";
 import Detail from "../Components/Detail";
 import MovieSlide from "../Components/MovieSlide";
 import Banner from "../Components/Banner";
+import { useEffect } from "react";
 
 const Wrapper = styled.div`
   max-width: 1920px;
@@ -23,7 +24,6 @@ const Loader = styled.div`
 `;
 
 const Home = () => {
-  const history = useNavigate();
   const bigMovieMatch = useMatch("/movies/:movieId");
 
   const { data: nowPlaying, isLoading } = useQuery(
@@ -40,6 +40,10 @@ const Home = () => {
     ["movies", "toprated"],
     getTopRated
   );
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <Wrapper>

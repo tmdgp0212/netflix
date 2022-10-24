@@ -6,6 +6,7 @@ import { getTvShows, getTvTopRated } from "../api";
 import MovieSlide from "../Components/MovieSlide";
 import Detail from "../Components/Detail";
 import Banner from "../Components/Banner";
+import { useEffect } from "react";
 
 const Wrapper = styled.div`
   max-width: 1920px;
@@ -23,7 +24,6 @@ const Loader = styled.div`
 `;
 
 const Tv = () => {
-  const history = useNavigate();
   const bigMovieMatch = useMatch("/tv/:movieId");
 
   const { data: nowPlaying, isLoading } = useQuery(
@@ -35,6 +35,10 @@ const Tv = () => {
     ["tvShow", "topRated"],
     getTvTopRated
   );
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <Wrapper>
