@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
+import Home from "./Routes/Home";
+import Search from "./Routes/Search";
+import Tv from "./Routes/Tv";
+
+const { PUBLIC_URL } = process.env;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter basename={PUBLIC_URL}>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies/:movieId" element={<Home />} />
+        <Route path="/tv" element={<Tv />} />
+        <Route path="/tv/:movieId" element={<Tv />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/search/:keyword" element={<Search />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
