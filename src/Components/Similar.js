@@ -76,7 +76,7 @@ const Similar = ({ movieId }) => {
               bgphoto={makeImagePath(movie.poster_path, "w300")}
             >
               <div className="poster">
-                {movie.poster_path ? null : "이미지가 없습니다"}
+                {movie.poster_path ? "" : "이미지가 없습니다"}
               </div>
               <div className="desc">
                 <h4>{movie.title}</h4>

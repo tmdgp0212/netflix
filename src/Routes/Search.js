@@ -50,15 +50,27 @@ const SearchedMovies = styled.div`
   gap: 20px;
   margin-bottom: 100px;
 
+  @media screen and (max-width: 992px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   > h2 {
     grid-column: span 2;
     font-size: 48px;
+
+    @media screen and (max-width: 992px) {
+      grid-column: initial;
+    }
   }
 
   > .null {
     grid-column: span 2;
     text-align: center;
     color: gray;
+
+    @media screen and (max-width: 992px) {
+      grid-column: initial;
+    }
   }
 `;
 
@@ -141,7 +153,6 @@ const Search = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     history(`/search/${keyword}`);
-    setKeyword("");
   };
 
   useEffect(() => {
@@ -154,6 +165,12 @@ const Search = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  useEffect(() => {
+    if (keywordMatch) {
+      setKeyword(keywordMatch.params.keyword);
+    }
+  }, [keywordMatch]);
   return (
     <Wrapper>
       <SearchInput onSubmit={(e) => onSubmit(e)}>
@@ -175,7 +192,10 @@ const Search = () => {
               </div>
             ) : (
               movies.map((movie) => (
-                <Content bgPhoto={makeImagePath(movie.poster_path, "w300")}>
+                <Content
+                  key={movie.id}
+                  bgPhoto={makeImagePath(movie.poster_path, "w300")}
+                >
                   <div className="poster">
                     {movie.poster_path ? null : "이미지가 없습니다"}
                   </div>
@@ -188,7 +208,11 @@ const Search = () => {
                       <FaStar />
                       평점 {movie.vote_average}
                     </p>
-                    <div className="overview">{movie.overview}</div>
+                    <div className="overview">
+                      {movie.overview === ""
+                        ? "줄거리 정보가 없습니다."
+                        : movie.overview}
+                    </div>
                   </div>
                 </Content>
               ))
@@ -207,7 +231,10 @@ const Search = () => {
               </div>
             ) : (
               TVs.map((tv) => (
-                <Content bgPhoto={makeImagePath(tv.poster_path, "w300")}>
+                <Content
+                  key={tv.id}
+                  bgPhoto={makeImagePath(tv.poster_path, "w300")}
+                >
                   <div className="poster">
                     {tv.poster_path ? null : "이미지가 없습니다"}
                   </div>
@@ -220,7 +247,11 @@ const Search = () => {
                       <FaStar />
                       평점 {tv.vote_average}
                     </p>
-                    <div className="overview">{tv.overview}</div>
+                    <div className="overview">
+                      {tv.overview === ""
+                        ? "줄거리 정보가 없습니다."
+                        : tv.overview}
+                    </div>
                   </div>
                 </Content>
               ))
