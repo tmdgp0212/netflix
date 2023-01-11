@@ -127,6 +127,7 @@ const Detail = ({ isMovie }) => {
   }
 
   const onOverlayClick = (e) => {
+    document.body.style.overflow = 'unset';
     return e.target === e.currentTarget && history(-1);
   };
 

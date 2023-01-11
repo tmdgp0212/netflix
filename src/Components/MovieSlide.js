@@ -197,6 +197,7 @@ const MovieSlide = ({ title, data, isMovie }) => {
   };
 
   const onBoxClicked = (movieId) => {
+    document.body.style.overflow = 'hidden';
     isMovie ? history(`/movies/${movieId}`) : history(`/tv/${movieId}`);
   };
 
