@@ -66,6 +66,8 @@ TV프로그램페이지를 클릭하면 마찬가지로 가장 높은 순위의 
 
 상단의 버튼을 통해 검색페이지로 이동합니다
 
+---
+
 ![searchlist](https://user-images.githubusercontent.com/112364408/211722324-5015d5d0-cdd3-40c1-b8a8-459f99dd5c90.png)
 
 영화와 TV프로그램으로 나누어 검색결과가 노출됩니다
@@ -74,5 +76,8 @@ TV프로그램페이지를 클릭하면 마찬가지로 가장 높은 순위의 
 
 ![search](https://user-images.githubusercontent.com/112364408/211722712-061ffb50-3a8c-43e7-869e-d9d7050ab500.png)
 
-어느 페이지, 어느 위치에있든 상단에 노출되어있는 헤더의 검색아이콘을 통해서도 검색이 가능합니다!
+어느 페이지, 어느 위치에있든  왼쪽 상단에 노출되어있는 헤더의 검색아이콘을 통해서도 검색이 가능합니다!
 
+### 💛 페이지 둘러보기
+
+![netflix](https://user-images.githubusercontent.com/112364408/211964054-dc20bcb2-bc5c-41d7-aca2-0393a658f008.gif)
